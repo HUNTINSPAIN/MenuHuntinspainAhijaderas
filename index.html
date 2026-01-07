@@ -4,338 +4,79 @@
     <title>Menu Finca Las Ahijaderas</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            font-family: "Montserrat", sans-serif;
-            background: #f9f9f9;
-            color: #333;
-        }
-        /* NAVBAR */
-        nav {
-            background: #1f3323;
-            padding: 28px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .nav-logo {
-            flex: 0 0 auto;
-        }
-
-        .logo {
-            height: 5cm;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .nav-links {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 90px; /* antes 250px — esto rompe textos en Safari */
-            flex-wrap: nowrap;
-            white-space: nowrap; /* evita que safari mueva el texto */
-        }
-        .nav-links a {
-            white-space: nowrap; /* no cortar los títulos del menú */
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.8em;
-            font-family: "DM Serif Display", serif;
-            font-weight: 400;
-            transition: color 0.3s;
-            margin: 0 10px;
-        }
-
-            nav a:hover {
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menu Finca Las Ahijaderas</title>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+        <style>
+            /* RESET GENERAL */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+    
+            body {
+                font-family: "Montserrat", sans-serif;
+                background: #f9f9f9;
+                color: #333;
+            }
+    
+            /* NAVBAR */
+            nav {
+                background: #1f3323;
+                padding: 28px 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+    
+            .nav-logo {
+                flex: 0 0 auto;
+            }
+    
+            .logo {
+                height: 5cm;
+                width: auto;
+                object-fit: contain;
+            }
+    
+            .nav-links {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 90px;
+                flex-wrap: nowrap;
+                white-space: nowrap;
+            }
+    
+            .nav-links a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 1.8em;
+                font-family: "DM Serif Display", serif;
+                font-weight: 400;
+                transition: color 0.3s;
+                margin: 0 10px;
+                white-space: nowrap;
+            }
+    
+            .nav-links a:hover {
                 color: #a3b18a;
             }
-        /* SECCIONES */
-        section {
-            padding: 60px 20px;
-        }
-
-            section h2 {
-                text-align: center;
-                font-size: 2.7em;
-                color: #2e3a2b;
-                margin-bottom: 40px;
-                font-family: "DM Serif Display", serif;
+    
+            .language-buttons {
+                margin-left: auto;
+                display: flex;
+                gap: 10px;
             }
-        /* GRID CARDS */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 300px;
-        }
-
-            .card:hover {
-                transform: scale(1.05);
-                box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            }
-
-            .card img {
-                width: 100%;
-                height: 160px;
-                object-fit: cover;
-            }
-
-            .card h3 {
-                margin: 15px 0 10px 0;
-                color: #2e3a2b;
-                font-family: "Montserrat", sans-serif;
-                font-weight: 400;
-                font-size: 1.2em;
-            }
-        /* Contenedor de iconos en las cards */
-        .allergens {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 6px;
-            margin-bottom: 10px;
-        }
-            /* Tamaño de iconos en las cards */
-            .allergens .allergen-icon {
-                width: 10px;
-                height: 22px;
-                object-fit: contain;
-                filter: drop-shadow(0 0 1px rgba(0,0,0,0.15));
-            }
-        /* Iconos dentro del modal */
-        #modal-allergens {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-            margin-bottom: 12px;
-        }
-
-            #modal-allergens .allergen-icon {
-                width: 28px;
-                height: 28px;
-            }
-        /* Sección informativa de alérgenos */
-        .allergen-info {
-            text-align: center;
-            padding: 20px 15px;
-            margin-top: 60px;
-        }
-
-            .allergen-info h2 {
-                font-family: "DM Serif Display", serif;
-                font-size: 2em;
-                color: #2e3a2b;
-                margin-bottom: 18px;
-            }
-
-        .allergen-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-            .allergen-icons img {
-                width: 80px;
-                height: 80px;
-                object-fit: contain;
-                opacity: 0.9;
-                transition: transform 0.2s ease, opacity 0.2s ease;
-            }
-
-                .allergen-icons img:hover {
-                    transform: scale(1.15);
-                    opacity: 1;
-                }
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            backdrop-filter: blur(6px);
-            background: rgba(0,0,0,0.7);
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-
-        .modal-content {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 50%;
-            width: 95%;
-            max-height: 100%;
-            text-align: center;
-            overflow: auto;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-            .modal-content img {
-                width: auto;
-                max-width: 100%;
-                height: auto;
-                max-height: 400px;
-                margin-bottom: 15px;
-            }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 2em;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .modal-content {
-            position: relative;
-        }
-
-        .modal-prev, .modal-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .modal-prev {
-            left: 10px;
-        }
-
-        .modal-next {
-            right: 10px;
-        }
-
-            .modal-prev img, .modal-next img {
-                width: 80px;
-                height: auto;
-                transition: transform 0.2s;
-            }
-
-                .modal-prev img:hover, .modal-next img:hover {
-                    transform: scale(1.2);
-                }
-
-        #modal-title {
-            font-size: 1.9em;
-            font-weight: 300;
-            margin-top: 15px;
-            color: #2e3a2b;
-            font-family: 'Pinyon Script', serif;
-            text-align: center;
-        }
-        /* FOOTER */
-        .footer {
-            background-color: #1f3323;
-            color: white;
-            padding: 30px 20px;
-            margin-top: 60px;
-            font-family: "DM Serif Display", serif;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            font-size: 1.2em;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 80%;
-            max-width: 900px;
-            gap: 40px;
-        }
-
-        .footer-left, .footer-right {
-            width: 45%;
-        }
-
-        .footer-divider {
-            width: 2px;
-            background-color: white;
-            height: 80px;
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                flex-direction: column;
-                text-align: center;
-                font-size: 1em;
-            }
-
-            .footer-divider {
-                display: none;
-            }
-
-            .footer-left, .footer-right {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            .nav-links {
-                flex-direction: column;
-                gap: 15px;
-                position: static;
-                transform: none;
-            }
-            nav a {
-                font-size: 1.3em;
-            }
-            .logo {
-                height: 3.5cm;
-            }
-            .card img {
-                height: 160px;
-            }
-        }
-
-        .language-buttons {
-            margin-left: auto;
-            display: flex;
-            gap: 10px;
-        }
-
+    
             .language-buttons button {
                 background: none;
                 color: #fff;
@@ -349,69 +90,318 @@
                 gap: 12px;
                 transition: background 0.3s;
             }
-
-                .language-buttons button:hover {
-                    background: #fff;
-                    color: #a3b18a;
-                }
-
+    
+            .language-buttons button:hover {
+                background: #fff;
+                color: #a3b18a;
+            }
+    
             .language-buttons .flag {
                 width: 20px;
                 height: auto;
-                display: inline-block;
             }
-            @supports (-webkit-touch-callout: none) {
-                nav {
-                    padding: 24px 30px;
-                }
-                .nav-links {
-                    gap: 50px; /* móvil */
-                }
+    
+            /* SECCIONES */
+            section {
+                padding: 60px 20px;
             }
-
+    
+            section h2 {
+                text-align: center;
+                font-size: 2.7em;
+                color: #2e3a2b;
+                margin-bottom: 40px;
+                font-family: "DM Serif Display", serif;
+            }
+    
+            /* GRID CARDS */
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 30px;
+                justify-content: center;
+            }
+    
+            .card {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                overflow: hidden;
+                text-align: center;
+                cursor: pointer;
+                transition: transform 0.3s, box-shadow 0.3s;
+                max-width: 300px;
+            }
+    
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            }
+    
+            .card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+    
+            .card h3 {
+                margin: 15px 0 10px 0;
+                color: #2e3a2b;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 400;
+                font-size: 1.2em;
+            }
+    
+            /* MODAL Y ALÉRGENOS */
+            .allergens {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-top: 6px;
+                margin-bottom: 10px;
+            }
+    
+            .allergens .allergen-icon {
+                width: 10px;
+                height: 22px;
+                object-fit: contain;
+                filter: drop-shadow(0 0 1px rgba(0,0,0,0.15));
+            }
+    
+            #modal-allergens {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                margin-top: 10px;
+                margin-bottom: 12px;
+            }
+    
+            #modal-allergens .allergen-icon {
+                width: 28px;
+                height: 28px;
+            }
+    
+            .allergen-info {
+                text-align: center;
+                padding: 20px 15px;
+                margin-top: 60px;
+            }
+    
+            .allergen-info h2 {
+                font-family: "DM Serif Display", serif;
+                font-size: 2em;
+                color: #2e3a2b;
+                margin-bottom: 18px;
+            }
+    
+            .allergen-icons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+    
+            .allergen-icons img {
+                width: 80px;
+                height: 80px;
+                object-fit: contain;
+                opacity: 0.9;
+                transition: transform 0.2s ease, opacity 0.2s ease;
+            }
+    
+            .allergen-icons img:hover {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+    
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 100;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(6px);
+                background: rgba(0,0,0,0.7);
+                justify-content: center;
+                align-items: center;
+            }
+    
+            .modal-content {
+                background: #fff;
+                padding: 30px;
+                border-radius: 15px;
+                max-width: 50%;
+                width: 95%;
+                max-height: 100%;
+                text-align: center;
+                overflow: auto;
+                transform: scale(0.8);
+                opacity: 0;
+                position: relative;
+            }
+    
+            .modal-content img {
+                width: auto;
+                max-width: 100%;
+                height: auto;
+                max-height: 400px;
+                margin-bottom: 15px;
+            }
+    
+            .close {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                font-size: 2em;
+                color: #fff;
+                cursor: pointer;
+            }
+    
+            .modal-prev, .modal-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                cursor: pointer;
+                z-index: 10;
+            }
+    
+            .modal-prev {
+                left: 10px;
+            }
+    
+            .modal-next {
+                right: 10px;
+            }
+    
+            .modal-prev img, .modal-next img {
+                width: 80px;
+                height: auto;
+                transition: transform 0.2s;
+            }
+    
+            .modal-prev img:hover, .modal-next img:hover {
+                transform: scale(1.2);
+            }
+    
+            #modal-title {
+                font-size: 1.9em;
+                font-weight: 300;
+                margin-top: 15px;
+                color: #2e3a2b;
+                font-family: 'Pinyon Script', serif;
+                text-align: center;
+            }
+    
+            /* FOOTER */
+            .footer {
+                background-color: #1f3323;
+                color: white;
+                padding: 30px 20px;
+                margin-top: 60px;
+                font-family: "DM Serif Display", serif;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                font-size: 1.2em;
+            }
+    
+            .footer-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                max-width: 900px;
+                gap: 40px;
+            }
+    
+            .footer-left, .footer-right {
+                width: 45%;
+            }
+    
+            .footer-divider {
+                width: 2px;
+                background-color: white;
+                height: 80px;
+                opacity: 0.7;
+            }
+    
+            /* MEDIA QUERY MÓVIL */
             @media (max-width: 768px) {
-    /* NAVBAR */
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
-        position: static;
-        transform: none;
-        font-size: 1.3em;
-    }
-
-    .logo {
-        height: 3.5cm; /* más pequeño para móvil */
-        margin: 0 auto;
-    }
-
-    /* CARDS */
-    .card img {
-        height: 160px; /* tu valor original reducido */
-    }
-
-    .grid {
-        grid-template-columns: 1fr; /* una card por fila en móvil */
-        gap: 20px;
-    }
-
-    /* FOOTER */
-    .footer {
-        flex-direction: column;
-        text-align: center;
-        font-size: 1em;
-    }
-
-    .footer-left, .footer-right {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .footer-divider {
-        display: none;
-    }
-}
-
-    </style>
+                /* Navbar: logo izquierda, links centro, idiomas derecha */
+                nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 1rem 1.5rem;
+                }
+    
+                .nav-logo {
+                    order: 1;
+                }
+    
+                .logo {
+                    height: 3.5cm;
+                    width: auto;
+                }
+    
+                .nav-links {
+                    order: 2;
+                    flex-basis: 100%;
+                    display: flex;
+                    justify-content: center;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+                    margin: 0.5rem 0;
+                }
+    
+                nav a {
+                    font-size: 1.3rem;
+                }
+    
+                .language-buttons {
+                    order: 3;
+                    justify-content: flex-end;
+                    margin: 0.5rem 0;
+                }
+    
+                /* GRID CARDS */
+                .grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+    
+                .card img {
+                    height: 160px;
+                }
+    
+                /* FOOTER */
+                .footer {
+                    flex-direction: column;
+                    text-align: center;
+                    font-size: 1em;
+                }
+    
+                .footer-left, .footer-right {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+    
+                .footer-divider {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    
 </head>
 <body>
     <nav>
