@@ -79,7 +79,7 @@
         /* GRID CARDS */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             justify-content: center;
         }
@@ -102,7 +102,7 @@
 
             .card img {
                 width: 100%;
-                height: 200px;
+                height: 160px;
                 object-fit: cover;
             }
 
@@ -302,6 +302,7 @@
             .footer {
                 flex-direction: column;
                 text-align: center;
+                font-size: 1em;
             }
 
             .footer-divider {
@@ -317,6 +318,9 @@
                 gap: 15px;
                 position: static;
                 transform: none;
+            }
+            nav a {
+                font-size: 1.3em;
             }
             .logo {
                 height: 3.5cm;
