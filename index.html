@@ -368,6 +368,49 @@
                     gap: 50px; /* móvil */
                 }
             }
+
+            @media (max-width: 768px) {
+    /* NAVBAR */
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        position: static;
+        transform: none;
+        font-size: 1.3em;
+    }
+
+    .logo {
+        height: 3.5cm; /* más pequeño para móvil */
+        margin: 0 auto;
+    }
+
+    /* CARDS */
+    .card img {
+        height: 160px; /* tu valor original reducido */
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* una card por fila en móvil */
+        gap: 20px;
+    }
+
+    /* FOOTER */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .footer-left, .footer-right {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .footer-divider {
+        display: none;
+    }
+}
+
     </style>
 </head>
 <body>
